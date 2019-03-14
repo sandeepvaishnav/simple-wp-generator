@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Wordpress Code Generator</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="#">Features</a>
+        <a class="p-2 text-dark" href="#">Enterprise</a>
+        <a class="p-2 text-dark" href="#">Support</a>
+        <a class="p-2 text-dark" href="#">Pricing</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="#">Sign up</a>
+</div>
+<div>
+<div id="leftbox">
+ <div id="xeditor">// Register Custom Post Type Custom Post
+     function create_custompost_cpt() {
+
+     $labels = array(
+     'name' => _x( 'Custom Posts', 'Post Type General Name', 'textdomain' ),
+     'singular_name' => _x( 'Custom Post', 'Post Type Singular Name', 'textdomain' ),
+     'menu_name' => _x( 'Custom Posts', 'Admin Menu text', 'textdomain' ),
+     'name_admin_bar' => _x( 'Custom Post', 'Add New on Toolbar', 'textdomain' ),
+     'archives' => __( 'Custom Post Archives', 'textdomain' ),
+     'attributes' => __( 'Custom Post Attributes', 'textdomain' ),
+     'parent_item_colon' => __( 'Parent Custom Post:', 'textdomain' ),
+     'all_items' => __( 'All Custom Posts', 'textdomain' ),
+     'add_new_item' => __( 'Add New Custom Post', 'textdomain' ),
+     'add_new' => __( 'Add New', 'textdomain' ),
+     'new_item' => __( 'New Custom Post', 'textdomain' ),
+     'edit_item' => __( 'Edit Custom Post', 'textdomain' ),
+     'update_item' => __( 'Update Custom Post', 'textdomain' ),
+     'view_item' => __( 'View Custom Post', 'textdomain' ),
+     'view_items' => __( 'View Custom Posts', 'textdomain' ),
+     'search_items' => __( 'Search Custom Post', 'textdomain' ),
+     'not_found' => __( 'Not found', 'textdomain' ),
+     'not_found_in_trash' => __( 'Not found in Trash', 'textdomain' ),
+     'featured_image' => __( 'Featured Image', 'textdomain' ),
+     'set_featured_image' => __( 'Set featured image', 'textdomain' ),
+     'remove_featured_image' => __( 'Remove featured image', 'textdomain' ),
+     'use_featured_image' => __( 'Use as featured image', 'textdomain' ),
+     'insert_into_item' => __( 'Insert into Custom Post', 'textdomain' ),
+     'uploaded_to_this_item' => __( 'Uploaded to this Custom Post', 'textdomain' ),
+     'items_list' => __( 'Custom Posts list', 'textdomain' ),
+     'items_list_navigation' => __( 'Custom Posts list navigation', 'textdomain' ),
+     'filter_items_list' => __( 'Filter Custom Posts list', 'textdomain' ),
+     );
+     $args = array(
+     'label' => __( 'Custom Post', 'textdomain' ),
+     'description' => __( '', 'textdomain' ),
+     'labels' => $labels,
+     'menu_icon' => '',
+     'supports' => array(),
+     'taxonomies' => array(),
+     'public' => true,
+     'show_ui' => true,
+     'show_in_menu' => true,
+     'menu_position' => 5,
+     'show_in_admin_bar' => true,
+     'show_in_nav_menus' => true,
+     'can_export' => true,
+     'has_archive' => true,
+     'hierarchical' => false,
+     'exclude_from_search' => false,
+     'show_in_rest' => true,
+     'publicly_queryable' => true,
+     'capability_type' => 'post',
+     );
+     register_post_type( 'custompost', $args );
+
+     }
+     add_action( 'init', 'create_custompost_cpt', 0 );</div>
+
+</div>
+<div id="rightbox">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="name_singular">Post Type Name (Singular)</label>
+                        <input type="text" class="form-control posttype" id="name_singular">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="name_plural">Post Type Name (Plural)</label>
+                        <input type="text" class="form-control" id="name_plural">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="post_type_key">Post Type Key</label>
+                        <input type="text" class="form-control" id="post_type_key">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="text_domain">Text-Domain</label>
+                        <input type="text" class="form-control" id="text_domain">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-3">
+                        <label>Hierarchical</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="hierarchical" class="onoffswitch-checkbox" id="hierarchical" checked>
+                            <label class="onoffswitch-label" for="hierarchical">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <label>Exclude from search</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="excludesearch" class="onoffswitch-checkbox" id="excludesearch" checked>
+                            <label class="onoffswitch-label" for="excludesearch">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <label>Publicly Queryable</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="publicly" class="onoffswitch-checkbox" id="publicly">
+                            <label class="onoffswitch-label" for="publicly">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <label>Has Archive?</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="archive">
+                            <label class="onoffswitch-label" for="archive">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-3">
+                        <label>Public</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="public" class="onoffswitch-checkbox" id="public">
+                            <label class="onoffswitch-label" for="public">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <label>Show UI</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="show_ui" class="onoffswitch-checkbox" id="show_ui">
+                            <label class="onoffswitch-label" for="show_ui">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <label>Show in menu</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="show_in_menu" class="onoffswitch-checkbox" id="show_in_menu">
+                            <label class="onoffswitch-label" for="show_in_menu">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <label>Show in admin bar</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="show_in_admin_bar" class="onoffswitch-checkbox" id="show_in_admin_bar">
+                            <label class="onoffswitch-label" for="show_in_admin_bar">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-lg-3">
+                        <label>Can export?</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="can_export" class="onoffswitch-checkbox" id="can_export">
+                            <label class="onoffswitch-label" for="can_export">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <label>Show in Nav Menus</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="show_in_nav_menus" class="onoffswitch-checkbox" id="show_in_nav_menus">
+                            <label class="onoffswitch-label" for="show_in_nav_menus">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="menu_position">Menu Position</label>
+                        <select id="menu_position" class="form-control" >
+                            <option value="5" selected>5 - below Posts</option>
+                            <option value="10">10 - below Media</option>
+                            <option value="15">15 - below Links</option>
+                            <option value="20">20 - below Pages</option>
+                            <option value="25">25 - below comments</option>
+                            <option value="60">60 - below first separator</option>
+                            <option value="65">65 - below Plugins</option>
+                            <option value="70">70 - below Users</option>
+                            <option value="75">75 - below Tools</option>
+                            <option value="80">80 - below Settings</option>
+                            <option value="100">100 - below second separator</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="capability">Capability Type</label>
+                        <select id="capability" class="form-control" >
+                            <option value="post" selected>Post</option>
+                            <option value="page">Page</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="language">Language</label>
+                        <select id="language" class="form-control" >
+                            <option value="english" selected>english</option>
+                            <option value="german">german</option>
+                            <option value="français">français</option>
+                            <option value="italiano">italiano</option>
+                            <option value="español">español</option>
+                            <option value="dutch">dutch</option>
+                            <option value="norwegian">norwegian</option>
+                            <option value="türkçe">türkçe</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="checkboxes col-12">
+                        <p class="radio-title">Supports</p>
+                    </div>
+                    <div class="checkboxes col col-lg-4">
+                        <p>
+                            <input type="checkbox" id="title" />
+                            <label for="title">Title</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="editor" />
+                            <label for="editor">Editor (Content)</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="excerpt" />
+                            <label for="excerpt">Excerpt</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="thumbnail" />
+                            <label for="thumbnail">Featured Image</label>
+                        </p>
+                    </div>
+                    <div class="checkboxes col col-lg-4">
+                        <p>
+                            <input type="checkbox" id="revisions" />
+                            <label for="revisions">Revisions</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="author" />
+                            <label for="author">Author</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="comments" />
+                            <label for="comments">Comments</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="trackbacks" />
+                            <label for="trackbacks">Trackbacks</label>
+                        </p>
+                    </div>
+                    <div class="checkboxes col col-lg-4">
+                        <p>
+                            <input type="checkbox" id="page-attributes" />
+                            <label for="page-attributes">Page Attributes</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="post-formats" />
+                            <label for="post-formats">Post Formats</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="custom-fields" />
+                            <label for="custom-fields">Custom Fields</label>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="taxonomies">Taxonomies (Keys)</label>
+                        <input id="taxonomies" class="form-control" type="text" name="tags">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="admin_sidebar_icon">Admin Sidebar Icon</label>
+                        <select id="admin_sidebar_icon" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="rewrite">Rewrite (Permalink)</label>
+                        <select id="rewrite" class="form-control">
+                            <option value="true" selected>Default (Post Type Key)</option>
+                            <option value="false">No Permalink</option>
+                            <option value="custom">Custom Permalink</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="query_var">Custom query variable</label>
+                        <input id="query_var" type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label  >Show in REST API</label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="show_in_rest" class="onoffswitch-checkbox" id="show_in_rest">
+                            <label class="onoffswitch-label" for="show_in_rest">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label >Rest Base</label>
+                        <input   type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label >Rest Controller Class</label>
+                        <input  type="text" class="form-control">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<script src="assets/js/jquery-3.3.1.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+ 
+ <script src="assets/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+     var editor = ace.edit("xeditor");
+  //  editor.setTheme("ace/theme/twilight");
+   // editor.session.setMode("ace/mode/javascript");
+    //editor.$blockScrolling = Infinity;
+
+    //editor.setValue(" Fill out the form on the left, the rest is pure vanilla Magic.");
+    //editor.getSession().setValue('Fill out the form on the left, the rest is pure vanilla Magic.');
+    editor.setReadOnly(true);
+    //editor.getSession().selection.clearSelection();
+
+
+    $('.posttype').on('keyup', function(){
+
+        var str= 'function create_';
+        str +=$(this).val();
+        str += '_cpt() {';
+
+        //$('#xeditor').html(str);
+
+        str +="$labels = array('name' => _x( 'Custom Posts', 'Post Type General Name', 'textdomain' ), 'singular_name' => _x( 'Custom Post', 'Post Type Singular Name', 'textdomain' ), 'menu_name' => _x( 'Custom Posts', 'Admin Menu text', 'textdomain' ),'name_admin_bar' => _x( 'Custom Post', 'Add New on olbar', 'textdomain' ), 'archives' => __( 'Custom Post Archives', 'textdomain' ), 'attributes' => __( 'Custom Post Attributes', 'textdomain' ),     'parent_item_colon' => __( 'Parent Custom Post:', 'textdomain' ), 'all_items' => __( 'All Custom Posts', 'textdomain' ), 'add_new_item' => __( 'Add New Custom Post', 'textdomain' ),'add_new' => __( 'Add New', 'textdomain' ), 'new_item' => __( 'New Custom Post', 'textdomain' ),'edit_item' => __( dit Custom Post', 'textdomain' ),'update_item' => __( 'Update Custom Post', 'textdomain' ),'view_item' => __( 'View Custom Post', 'textdomain' ),   'view_items' => __( 'View Custom Posts', 'textdomain' ), 'search_items' => __( 'Search Custom Post', 'textdomain' ), 'not_found' => __( 'Not found', extdomain' ), 'not_found_in_trash' => __( 'Not found in Trash', 'textdomain' ), 'featured_image' => __( 'Featured Image', 'textdomain' ),    'set_featured_image' => __( 'Set featured image', 'textdomain' ), 'remove_featured_image' => __( 'Remove featured image', 'textdomain' ),     'use_featured_image' => __( 'Use as featured image', 'textdomain' ), 'insert_into_item' => __( 'Insert into Custom Post', 'textdomain' ),     'uploaded_to_this_item' => __( 'Uploaded to this Custom Post', 'textdomain' ), 'items_list' => __( 'Custom Posts list', 'textdomain' ),    'items_list_navigation' => __( 'Custom Posts list navigation', 'textdomain' ), 'filter_items_list' => __( 'Filter Custom Posts list', 'textdomain' ), );";
+
+    str +="$args = array( 'label' => __( 'Custom Post', 'textdomain' ), 'description' => __( '', 'textdomain' ),  'labels' => $labels, 'menu_icon' => '','supports' => array(), 'taxonomies' => array(), 'public' => true, 'show_ui' => true, 'show_in_menu' => true, 'menu_position' => 5,'show_in_admin_bar' rue, 'show_in_nav_menus' => true, 'can_export' => true,'has_archive' => true,'hierarchical' => false, 'exclude_from_search' => false,'show_in_rest' => ue,'publicly_queryable' => true,   'capability_type' => 'post',  );";
+
+
+     str += "register_post_type( 'custompost', $args );     }     add_action( 'init', 'create_custompost_cpt', 0 );"
+
+        if($(this).val()!= "")
+            editor.getSession().setValue(str);
+        else
+            editor.getSession().setValue('function create_test_cpt() {');
+        
+
+    })
+
+
+</script>
+</body>
+</html> 
